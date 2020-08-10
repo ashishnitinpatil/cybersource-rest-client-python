@@ -12,7 +12,14 @@ VERSION = "0.0.19"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3", "six", "certifi", "DateTime", "Naked", "PyJWT", "PyNaCl", "PyYAML",
+REQUIRES = ["urllib3",
+            "six",
+            "certifi",
+            "DateTime",
+            "Naked @ git+https://github.com/chrissimpkins/naked.git@8a14b96#egg=Naked",
+            "PyJWT",
+            "PyNaCl",
+            "PyYAML",
             "asn1crypto",
             "bcrypt",
             "certifi",
@@ -55,7 +62,7 @@ REQUIRES = ["urllib3", "six", "certifi", "DateTime", "Naked", "PyJWT", "PyNaCl",
             "traceback2",
             "wheel",
             "x509",
-            "zope.interface",]
+            "zope.interface"]
 
 setup(
     name=NAME,

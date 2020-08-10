@@ -31,14 +31,18 @@ class InstrumentIdentifier(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'links': 'TmsV1InstrumentIdentifiersPost200ResponseLinks',
+        'links': 'Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierLinks',
         'id': 'str',
         'object': 'str',
         'state': 'str',
-        'card': 'TmsV1InstrumentIdentifiersPost200ResponseCard',
-        'bank_account': 'Tmsv1instrumentidentifiersBankAccount',
-        'processing_information': 'TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation',
-        'metadata': 'TmsV1InstrumentIdentifiersPost200ResponseMetadata'
+        'type': 'str',
+        'card': 'Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard',
+        'bank_account': 'Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBankAccount',
+        'tokenized_card': 'Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierTokenizedCard',
+        'issuer': 'Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierIssuer',
+        'processing_information': 'Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformation',
+        'bill_to': 'Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo',
+        'metadata': 'Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierMetadata'
     }
 
     attribute_map = {
@@ -46,13 +50,17 @@ class InstrumentIdentifier(object):
         'id': 'id',
         'object': 'object',
         'state': 'state',
+        'type': 'type',
         'card': 'card',
         'bank_account': 'bankAccount',
+        'tokenized_card': 'tokenizedCard',
+        'issuer': 'issuer',
         'processing_information': 'processingInformation',
+        'bill_to': 'billTo',
         'metadata': 'metadata'
     }
 
-    def __init__(self, links=None, id=None, object=None, state=None, card=None, bank_account=None, processing_information=None, metadata=None):
+    def __init__(self, links=None, id=None, object=None, state=None, type=None, card=None, bank_account=None, tokenized_card=None, issuer=None, processing_information=None, bill_to=None, metadata=None):
         """
         InstrumentIdentifier - a model defined in Swagger
         """
@@ -61,9 +69,13 @@ class InstrumentIdentifier(object):
         self._id = None
         self._object = None
         self._state = None
+        self._type = None
         self._card = None
         self._bank_account = None
+        self._tokenized_card = None
+        self._issuer = None
         self._processing_information = None
+        self._bill_to = None
         self._metadata = None
 
         if links is not None:
@@ -74,12 +86,20 @@ class InstrumentIdentifier(object):
           self.object = object
         if state is not None:
           self.state = state
+        if type is not None:
+          self.type = type
         if card is not None:
           self.card = card
         if bank_account is not None:
           self.bank_account = bank_account
+        if tokenized_card is not None:
+          self.tokenized_card = tokenized_card
+        if issuer is not None:
+          self.issuer = issuer
         if processing_information is not None:
           self.processing_information = processing_information
+        if bill_to is not None:
+          self.bill_to = bill_to
         if metadata is not None:
           self.metadata = metadata
 
@@ -89,7 +109,7 @@ class InstrumentIdentifier(object):
         Gets the links of this InstrumentIdentifier.
 
         :return: The links of this InstrumentIdentifier.
-        :rtype: TmsV1InstrumentIdentifiersPost200ResponseLinks
+        :rtype: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierLinks
         """
         return self._links
 
@@ -99,7 +119,7 @@ class InstrumentIdentifier(object):
         Sets the links of this InstrumentIdentifier.
 
         :param links: The links of this InstrumentIdentifier.
-        :type: TmsV1InstrumentIdentifiersPost200ResponseLinks
+        :type: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierLinks
         """
 
         self._links = links
@@ -108,7 +128,7 @@ class InstrumentIdentifier(object):
     def id(self):
         """
         Gets the id of this InstrumentIdentifier.
-        Unique identification number assigned by CyberSource to the submitted request.
+        The id of the Instrument Identifier Token. 
 
         :return: The id of this InstrumentIdentifier.
         :rtype: str
@@ -119,7 +139,7 @@ class InstrumentIdentifier(object):
     def id(self, id):
         """
         Sets the id of this InstrumentIdentifier.
-        Unique identification number assigned by CyberSource to the submitted request.
+        The id of the Instrument Identifier Token. 
 
         :param id: The id of this InstrumentIdentifier.
         :type: str
@@ -131,7 +151,7 @@ class InstrumentIdentifier(object):
     def object(self):
         """
         Gets the object of this InstrumentIdentifier.
-        'Describes type of token.'  Valid values: - instrumentIdentifier 
+        The type of token.  Valid values: - instrumentIdentifier 
 
         :return: The object of this InstrumentIdentifier.
         :rtype: str
@@ -142,7 +162,7 @@ class InstrumentIdentifier(object):
     def object(self, object):
         """
         Sets the object of this InstrumentIdentifier.
-        'Describes type of token.'  Valid values: - instrumentIdentifier 
+        The type of token.  Valid values: - instrumentIdentifier 
 
         :param object: The object of this InstrumentIdentifier.
         :type: str
@@ -154,7 +174,7 @@ class InstrumentIdentifier(object):
     def state(self):
         """
         Gets the state of this InstrumentIdentifier.
-        'Current state of the token.'  Valid values: - ACTIVE - CLOSED 
+        Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed. 
 
         :return: The state of this InstrumentIdentifier.
         :rtype: str
@@ -165,7 +185,7 @@ class InstrumentIdentifier(object):
     def state(self, state):
         """
         Sets the state of this InstrumentIdentifier.
-        'Current state of the token.'  Valid values: - ACTIVE - CLOSED 
+        Issuers state for the card number. Valid values: - ACTIVE - CLOSED : The account has been closed. 
 
         :param state: The state of this InstrumentIdentifier.
         :type: str
@@ -174,12 +194,35 @@ class InstrumentIdentifier(object):
         self._state = state
 
     @property
+    def type(self):
+        """
+        Gets the type of this InstrumentIdentifier.
+        The type of Instrument Identifier. Valid values: - enrollable card 
+
+        :return: The type of this InstrumentIdentifier.
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """
+        Sets the type of this InstrumentIdentifier.
+        The type of Instrument Identifier. Valid values: - enrollable card 
+
+        :param type: The type of this InstrumentIdentifier.
+        :type: str
+        """
+
+        self._type = type
+
+    @property
     def card(self):
         """
         Gets the card of this InstrumentIdentifier.
 
         :return: The card of this InstrumentIdentifier.
-        :rtype: TmsV1InstrumentIdentifiersPost200ResponseCard
+        :rtype: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard
         """
         return self._card
 
@@ -189,7 +232,7 @@ class InstrumentIdentifier(object):
         Sets the card of this InstrumentIdentifier.
 
         :param card: The card of this InstrumentIdentifier.
-        :type: TmsV1InstrumentIdentifiersPost200ResponseCard
+        :type: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierCard
         """
 
         self._card = card
@@ -200,7 +243,7 @@ class InstrumentIdentifier(object):
         Gets the bank_account of this InstrumentIdentifier.
 
         :return: The bank_account of this InstrumentIdentifier.
-        :rtype: Tmsv1instrumentidentifiersBankAccount
+        :rtype: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBankAccount
         """
         return self._bank_account
 
@@ -210,10 +253,52 @@ class InstrumentIdentifier(object):
         Sets the bank_account of this InstrumentIdentifier.
 
         :param bank_account: The bank_account of this InstrumentIdentifier.
-        :type: Tmsv1instrumentidentifiersBankAccount
+        :type: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBankAccount
         """
 
         self._bank_account = bank_account
+
+    @property
+    def tokenized_card(self):
+        """
+        Gets the tokenized_card of this InstrumentIdentifier.
+
+        :return: The tokenized_card of this InstrumentIdentifier.
+        :rtype: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierTokenizedCard
+        """
+        return self._tokenized_card
+
+    @tokenized_card.setter
+    def tokenized_card(self, tokenized_card):
+        """
+        Sets the tokenized_card of this InstrumentIdentifier.
+
+        :param tokenized_card: The tokenized_card of this InstrumentIdentifier.
+        :type: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierTokenizedCard
+        """
+
+        self._tokenized_card = tokenized_card
+
+    @property
+    def issuer(self):
+        """
+        Gets the issuer of this InstrumentIdentifier.
+
+        :return: The issuer of this InstrumentIdentifier.
+        :rtype: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierIssuer
+        """
+        return self._issuer
+
+    @issuer.setter
+    def issuer(self, issuer):
+        """
+        Sets the issuer of this InstrumentIdentifier.
+
+        :param issuer: The issuer of this InstrumentIdentifier.
+        :type: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierIssuer
+        """
+
+        self._issuer = issuer
 
     @property
     def processing_information(self):
@@ -221,7 +306,7 @@ class InstrumentIdentifier(object):
         Gets the processing_information of this InstrumentIdentifier.
 
         :return: The processing_information of this InstrumentIdentifier.
-        :rtype: TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation
+        :rtype: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformation
         """
         return self._processing_information
 
@@ -231,10 +316,31 @@ class InstrumentIdentifier(object):
         Sets the processing_information of this InstrumentIdentifier.
 
         :param processing_information: The processing_information of this InstrumentIdentifier.
-        :type: TmsV1InstrumentIdentifiersPost200ResponseProcessingInformation
+        :type: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierProcessingInformation
         """
 
         self._processing_information = processing_information
+
+    @property
+    def bill_to(self):
+        """
+        Gets the bill_to of this InstrumentIdentifier.
+
+        :return: The bill_to of this InstrumentIdentifier.
+        :rtype: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo
+        """
+        return self._bill_to
+
+    @bill_to.setter
+    def bill_to(self, bill_to):
+        """
+        Sets the bill_to of this InstrumentIdentifier.
+
+        :param bill_to: The bill_to of this InstrumentIdentifier.
+        :type: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierBillTo
+        """
+
+        self._bill_to = bill_to
 
     @property
     def metadata(self):
@@ -242,7 +348,7 @@ class InstrumentIdentifier(object):
         Gets the metadata of this InstrumentIdentifier.
 
         :return: The metadata of this InstrumentIdentifier.
-        :rtype: TmsV1InstrumentIdentifiersPost200ResponseMetadata
+        :rtype: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierMetadata
         """
         return self._metadata
 
@@ -252,7 +358,7 @@ class InstrumentIdentifier(object):
         Sets the metadata of this InstrumentIdentifier.
 
         :param metadata: The metadata of this InstrumentIdentifier.
-        :type: TmsV1InstrumentIdentifiersPost200ResponseMetadata
+        :type: Tmsv2customersEmbeddedDefaultPaymentInstrumentEmbeddedInstrumentIdentifierMetadata
         """
 
         self._metadata = metadata

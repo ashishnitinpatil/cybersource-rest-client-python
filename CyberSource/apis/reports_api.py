@@ -160,7 +160,7 @@ class ReportsApi(object):
 
     def get_report_by_report_id(self, report_id, **kwargs):
         """
-        Get Report based on reportId
+        Get Report Based on Report Id
         Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -187,7 +187,7 @@ class ReportsApi(object):
 
     def get_report_by_report_id_with_http_info(self, report_id, **kwargs):
         """
-        Get Report based on reportId
+        Get Report Based on Report Id
         Download a report using the reportId value. If you don’t already know this value, you can obtain it using the Retrieve available reports call. 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -276,7 +276,7 @@ class ReportsApi(object):
 
     def search_reports(self, start_time, end_time, time_query_type, **kwargs):
         """
-        Retrieve available reports
+        Retrieve Available Reports
         Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -293,7 +293,7 @@ class ReportsApi(object):
         :param str time_query_type: Specify time you would like to search  Valid values: - reportTimeFrame - executedTime  (required)
         :param str organization_id: Valid Cybersource Organization Id
         :param str report_mime_type: Valid Report Format  Valid values: - application/xml - text/csv 
-        :param str report_frequency: Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC 
+        :param str report_frequency: Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC 
         :param str report_name: Valid Report Name
         :param int report_definition_id: Valid Report Definition Id
         :param str report_status: Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA 
@@ -310,7 +310,7 @@ class ReportsApi(object):
 
     def search_reports_with_http_info(self, start_time, end_time, time_query_type, **kwargs):
         """
-        Retrieve available reports
+        Retrieve Available Reports
         Retrieve a list of the available reports to which you are subscribed. This will also give you the reportId value, which you can also use to download a report. 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -327,7 +327,7 @@ class ReportsApi(object):
         :param str time_query_type: Specify time you would like to search  Valid values: - reportTimeFrame - executedTime  (required)
         :param str organization_id: Valid Cybersource Organization Id
         :param str report_mime_type: Valid Report Format  Valid values: - application/xml - text/csv 
-        :param str report_frequency: Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC 
+        :param str report_frequency: Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - USER_DEFINED - ADHOC 
         :param str report_name: Valid Report Name
         :param int report_definition_id: Valid Report Definition Id
         :param str report_status: Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA 

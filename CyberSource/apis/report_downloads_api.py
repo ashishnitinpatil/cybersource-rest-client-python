@@ -44,7 +44,7 @@ class ReportDownloadsApi(object):
 
     def download_report(self, report_date, report_name, **kwargs):
         """
-        Download a report
+        Download a Report
         Download a report using the unique report name and date. 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -56,7 +56,7 @@ class ReportDownloadsApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param date report_date: Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd  (required)
+        :param date report_date: Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**  yyyy-mm-dd For reports that span multiple days, this value would be the end date of the report in the time zone of the report subscription. Example 1: If your report start date is 2020-03-06 and the end date is 2020-03-09, the reportDate passed in the query is 2020-03-09. Example 2: If your report runs from midnight to midnight on 2020-03-09, the reportDate passed in the query is 2020-03-10  (required)
         :param str report_name: Name of the report to download (required)
         :param str organization_id: Valid Cybersource Organization Id
         :return: None
@@ -72,7 +72,7 @@ class ReportDownloadsApi(object):
 
     def download_report_with_http_info(self, report_date, report_name, **kwargs):
         """
-        Download a report
+        Download a Report
         Download a report using the unique report name and date. 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -84,7 +84,7 @@ class ReportDownloadsApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param date report_date: Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd  (required)
+        :param date report_date: Valid date on which to download the report in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**  yyyy-mm-dd For reports that span multiple days, this value would be the end date of the report in the time zone of the report subscription. Example 1: If your report start date is 2020-03-06 and the end date is 2020-03-09, the reportDate passed in the query is 2020-03-09. Example 2: If your report runs from midnight to midnight on 2020-03-09, the reportDate passed in the query is 2020-03-10  (required)
         :param str report_name: Name of the report to download (required)
         :param str organization_id: Valid Cybersource Organization Id
         :return: None

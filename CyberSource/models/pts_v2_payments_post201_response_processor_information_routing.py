@@ -62,7 +62,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformationRouting(object):
     def network(self):
         """
         Gets the network of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
-        Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - `C`: Credit network - `D`: Debit network (without signature) - `S`: STAR signature debit network  This field is supported only on FDC Nashville Global.  For details, see the `routing_network_type` field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - `C`: Credit network - `D`: Debit network (without signature) - `S`: STAR signature debit network  This field is supported only on FDC Nashville Global.  #### PIN debit Network that was used to route the transaction. This is the list of network codes:  | Network | Code | | --- | --- | | Accel | E | | AFFN | U | | Alaska Option | 3 | | CU24 | C | | Interlink | G | | Maestro | 8 | | NETS | P | | NYCE | F | | Pulse | H | | Shazam | 7 | | Star | M | | Visa | V |  Returned by PIN debit credit and PIN debit purchase. 
 
         :return: The network of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
         :rtype: str
@@ -73,7 +73,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformationRouting(object):
     def network(self, network):
         """
         Sets the network of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
-        Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - `C`: Credit network - `D`: Debit network (without signature) - `S`: STAR signature debit network  This field is supported only on FDC Nashville Global.  For details, see the `routing_network_type` field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Indicates whether the transaction was routed on a credit network, a debit network, or the STAR signature debit network.  Possible values: - `C`: Credit network - `D`: Debit network (without signature) - `S`: STAR signature debit network  This field is supported only on FDC Nashville Global.  #### PIN debit Network that was used to route the transaction. This is the list of network codes:  | Network | Code | | --- | --- | | Accel | E | | AFFN | U | | Alaska Option | 3 | | CU24 | C | | Interlink | G | | Maestro | 8 | | NETS | P | | NYCE | F | | Pulse | H | | Shazam | 7 | | Star | M | | Visa | V |  Returned by PIN debit credit and PIN debit purchase. 
 
         :param network: The network of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
         :type: str
@@ -87,7 +87,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformationRouting(object):
     def network_name(self):
         """
         Gets the network_name of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
-        Name of the network on which the transaction was routed.  This field is supported only on FDC Nashville Global.  For details, see the `routing_network_label` field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Name of the network on which the transaction was routed.  This reply field is supported only on FDC Nashville Global. 
 
         :return: The network_name of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
         :rtype: str
@@ -98,7 +98,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformationRouting(object):
     def network_name(self, network_name):
         """
         Sets the network_name of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
-        Name of the network on which the transaction was routed.  This field is supported only on FDC Nashville Global.  For details, see the `routing_network_label` field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Name of the network on which the transaction was routed.  This reply field is supported only on FDC Nashville Global. 
 
         :param network_name: The network_name of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
         :type: str
@@ -112,7 +112,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformationRouting(object):
     def customer_signature_required(self):
         """
         Gets the customer_signature_required of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
-        Indicates whether you need to obtain the cardholder's signature.  Possible values: - `Y`: You need to obtain the cardholder's signature. - `N`: You do not need to obtain the cardholder's signature.  This field is supported only on FDC Nashville Global.  For details, see the `routing_signature_cvm_required` field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Indicates whether you need to obtain the cardholder's signature.  Possible values: - `Y`: You need to obtain the cardholder's signature. - `N`: You do not need to obtain the cardholder's signature.  This field is supported only on FDC Nashville Global. 
 
         :return: The customer_signature_required of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
         :rtype: str
@@ -123,7 +123,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformationRouting(object):
     def customer_signature_required(self, customer_signature_required):
         """
         Sets the customer_signature_required of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
-        Indicates whether you need to obtain the cardholder's signature.  Possible values: - `Y`: You need to obtain the cardholder's signature. - `N`: You do not need to obtain the cardholder's signature.  This field is supported only on FDC Nashville Global.  For details, see the `routing_signature_cvm_required` field description in [Card-Present Processing Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Retail_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Indicates whether you need to obtain the cardholder's signature.  Possible values: - `Y`: You need to obtain the cardholder's signature. - `N`: You do not need to obtain the cardholder's signature.  This field is supported only on FDC Nashville Global. 
 
         :param customer_signature_required: The customer_signature_required of this PtsV2PaymentsPost201ResponseProcessorInformationRouting.
         :type: str

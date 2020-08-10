@@ -17,6 +17,7 @@ import json
 import mimetypes
 import tempfile
 import threading
+import pkg_resources
 
 from datetime import date, datetime
 
@@ -64,6 +65,9 @@ class ApiClient(object):
         'object': object,
     }
 
+    def set_user_defined_accept_header(self, user_defined_accept_header):
+        self.accept_header = user_defined_accept_header
+
     def __init__(self, host=None, header_name=None, header_value=None, cookie=None):
         """
         Constructor of the class.
@@ -79,6 +83,8 @@ class ApiClient(object):
         self.cookie = cookie
         # Set default User-Agent.
         self.user_agent = 'Swagger-Codegen/1.0.0/python'
+        self.client_id = self.get_client_id()
+        self.download_file_path = None
 
     @property
     def user_agent(self):
@@ -96,7 +102,11 @@ class ApiClient(object):
 
     def set_default_header(self, header_name, header_value):
         self.default_headers[header_name] = header_value
-    
+
+    def get_client_id(self):
+        version = pkg_resources.require("cybersource-rest-client-python")[0].version
+        return "cybs-rest-sdk-python-" + version
+
     # replace the underscore
     def replace_underscore(self, dict_obj, deep=True):
         assert type(dict_obj) == dict
@@ -131,6 +141,11 @@ class ApiClient(object):
         global mconfig
         mconfig = MerchantConfiguration()
         mconfig.set_merchantconfig(config)
+
+        # The below two lines are to set proxy details and if present reinitialize the REST object as a proxy manager
+        if Configuration().set_merchantproxyconfig(config):
+            self.rest_client = RESTClientObject() # Reinitialising REST object as a proxy manager instead of pool manager
+
         # This implements the fall back logic for JWT parameters key alias,key password,json file path
         mconfig.validate_merchant_details(config, mconfig)
         # Setting the Host by reading the Environment(SANDBOX/PRODUCTION) from Merchant Config
@@ -149,6 +164,11 @@ class ApiClient(object):
             mconfig.request_json_path_data = body
 
         logger = mconfig.log
+
+        header_params['v-c-client-id'] = self.client_id
+
+        # if not mconfig.solution_id in (None, ''):
+            # header_params['v-c-solution-id'] = mconfig.solution_id
 
         auth = Authorization()
         token = auth.get_token(mconfig, mconfig.get_time(), logger)
@@ -187,12 +207,7 @@ class ApiClient(object):
         if query_param:
             path += '?' + urlencode(query_param)
 
-        return path
-        
-    
-    
-    
-  
+        return path  
 
     def __call_api(self, resource_path, method,
                    path_params=None, query_params=None, header_params=None,
@@ -202,6 +217,12 @@ class ApiClient(object):
                    _request_timeout=None):
 
         config = Configuration()
+
+        if (hasattr(self, 'accept_header')):
+            if (self.accept_header is not None):
+                default_accept_header = ', ' + header_params['Accept']
+                default_accept_header = self.accept_header + default_accept_header.replace(', ' + self.accept_header, '')
+                header_params['Accept'] = default_accept_header
 
         # header parameters
         header_params = header_params or {}
@@ -246,6 +267,8 @@ class ApiClient(object):
         # request url
         url = GlobalLabelParameters.HTTP_URL_PREFIX+self.host + resource_path
         
+        if self.download_file_path is not None:
+            _preload_content = False        
 
         # perform request and return response
         response_data = self.request(method, url,
@@ -255,25 +278,36 @@ class ApiClient(object):
                                      _preload_content=_preload_content,
                                      _request_timeout=_request_timeout)
 
-        self.last_response = response_data
+        if self.download_file_path is None:
+            self.last_response = response_data
 
-        return_data = response_data
-        if _preload_content:
-            # deserialize response data
-            if response_type:
-                return_data = self.deserialize(response_data, response_type)
+            return_data = response_data
+            if _preload_content:
+                # deserialize response data
+                if response_type:
+                    return_data = self.deserialize(response_data, response_type)
+                else:
+                    return_data = None
+            
+            if callback:
+                if _return_http_data_only:
+                    callback(return_data)
+                else:
+                    callback((return_data, response_data.status, response_data.getheaders()))
+            elif _return_http_data_only:
+                return (return_data, response_data.status, response_data.data)
             else:
-                return_data = None
-
-        if callback:
-            if _return_http_data_only:
-                callback(return_data)
-            else:
-                callback((return_data, response_data.status, response_data.getheaders()))
-        elif _return_http_data_only:
-            return (return_data, response_data.status, response_data.data)
+                return (return_data, response_data.status, response_data.getheaders())
         else:
-            return (return_data, response_data.status, response_data.getheaders())
+            if response_data.status >= 200 and response_data.status <= 299:
+                fdst = open(self.download_file_path, 'w')
+                
+                for chunk in response_data.stream():
+                    fdst.writelines(chunk.decode('utf-8'))
+
+                fdst.close()
+            response_data.release_conn()
+            return (response_data.status, response_data.getheaders())
 
     def sanitize_for_serialization(self, obj):
         """
@@ -392,6 +426,8 @@ class ApiClient(object):
             request_body = self.replace_underscore(json.loads(temp_body))
             body = json.dumps(request_body)
             body = body.replace("companyTaxId", "companyTaxID")
+            body = body.replace("productSku", "productSKU")
+            body = body.replace("secCode", "SECCode")
         query_param_path = self.set_query_params(resource_path, query_params)
         if query_param_path:
             mconfig.request_target = query_param_path
@@ -447,8 +483,8 @@ class ApiClient(object):
                                             response_type, auth_settings,
                                             callback, _return_http_data_only,
                                             collection_formats, _preload_content, _request_timeout))
-        thread.start()
-        return thread
+            thread.start()
+            return thread
 
     def request(self, method, url, query_params=None, headers=None,
                 post_params=None, body=None, _preload_content=True, _request_timeout=None):

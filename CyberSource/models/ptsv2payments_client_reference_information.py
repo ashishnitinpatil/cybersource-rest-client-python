@@ -34,17 +34,23 @@ class Ptsv2paymentsClientReferenceInformation(object):
         'code': 'str',
         'transaction_id': 'str',
         'comments': 'str',
-        'partner': 'Ptsv2paymentsClientReferenceInformationPartner'
+        'partner': 'Ptsv2paymentsClientReferenceInformationPartner',
+        'application_name': 'str',
+        'application_version': 'str',
+        'application_user': 'str'
     }
 
     attribute_map = {
         'code': 'code',
         'transaction_id': 'transactionId',
         'comments': 'comments',
-        'partner': 'partner'
+        'partner': 'partner',
+        'application_name': 'applicationName',
+        'application_version': 'applicationVersion',
+        'application_user': 'applicationUser'
     }
 
-    def __init__(self, code=None, transaction_id=None, comments=None, partner=None):
+    def __init__(self, code=None, transaction_id=None, comments=None, partner=None, application_name=None, application_version=None, application_user=None):
         """
         Ptsv2paymentsClientReferenceInformation - a model defined in Swagger
         """
@@ -53,6 +59,9 @@ class Ptsv2paymentsClientReferenceInformation(object):
         self._transaction_id = None
         self._comments = None
         self._partner = None
+        self._application_name = None
+        self._application_version = None
+        self._application_user = None
 
         if code is not None:
           self.code = code
@@ -62,12 +71,18 @@ class Ptsv2paymentsClientReferenceInformation(object):
           self.comments = comments
         if partner is not None:
           self.partner = partner
+        if application_name is not None:
+          self.application_name = application_name
+        if application_version is not None:
+          self.application_version = application_version
+        if application_user is not None:
+          self.application_user = application_user
 
     @property
     def code(self):
         """
         Gets the code of this Ptsv2paymentsClientReferenceInformation.
-        Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  For information about tracking orders, see \"Tracking and Reconciling Your Orders\" in [Getting Started with CyberSource Advanced for the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Getting_Started_SCMP/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. 
+        Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. 
 
         :return: The code of this Ptsv2paymentsClientReferenceInformation.
         :rtype: str
@@ -78,7 +93,7 @@ class Ptsv2paymentsClientReferenceInformation(object):
     def code(self, code):
         """
         Sets the code of this Ptsv2paymentsClientReferenceInformation.
-        Client-generated order reference or tracking number. CyberSource recommends that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  For information about tracking orders, see \"Tracking and Reconciling Your Orders\" in [Getting Started with CyberSource Advanced for the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/Getting_Started_SCMP/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. 
+        Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. 
 
         :param code: The code of this Ptsv2paymentsClientReferenceInformation.
         :type: str
@@ -92,7 +107,7 @@ class Ptsv2paymentsClientReferenceInformation(object):
     def transaction_id(self):
         """
         Gets the transaction_id of this Ptsv2paymentsClientReferenceInformation.
-        Identifier that you assign to the transaction.  **Note** Use this field only if you want to support merchant-initiated reversal and void operations.  For details, see \"Merchant-Initiated Reversals and Voids\" in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Identifier that you assign to the transaction.  **Note** Use this field only if you want to support merchant-initiated reversal and void operations.  #### Used by **Authorization, Authorization Reversal, Capture, Credit, and Void** Optional field.  #### PIN Debit For a PIN debit reversal, your request must include a request ID or a merchant transaction identifier.  Optional field for PIN debit purchase or credit requests. 
 
         :return: The transaction_id of this Ptsv2paymentsClientReferenceInformation.
         :rtype: str
@@ -103,11 +118,13 @@ class Ptsv2paymentsClientReferenceInformation(object):
     def transaction_id(self, transaction_id):
         """
         Sets the transaction_id of this Ptsv2paymentsClientReferenceInformation.
-        Identifier that you assign to the transaction.  **Note** Use this field only if you want to support merchant-initiated reversal and void operations.  For details, see \"Merchant-Initiated Reversals and Voids\" in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Identifier that you assign to the transaction.  **Note** Use this field only if you want to support merchant-initiated reversal and void operations.  #### Used by **Authorization, Authorization Reversal, Capture, Credit, and Void** Optional field.  #### PIN Debit For a PIN debit reversal, your request must include a request ID or a merchant transaction identifier.  Optional field for PIN debit purchase or credit requests. 
 
         :param transaction_id: The transaction_id of this Ptsv2paymentsClientReferenceInformation.
         :type: str
         """
+        if transaction_id is not None and len(transaction_id) > 30:
+            raise ValueError("Invalid value for `transaction_id`, length must be less than or equal to `30`")
 
         self._transaction_id = transaction_id
 
@@ -154,6 +171,75 @@ class Ptsv2paymentsClientReferenceInformation(object):
         """
 
         self._partner = partner
+
+    @property
+    def application_name(self):
+        """
+        Gets the application_name of this Ptsv2paymentsClientReferenceInformation.
+        The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. 
+
+        :return: The application_name of this Ptsv2paymentsClientReferenceInformation.
+        :rtype: str
+        """
+        return self._application_name
+
+    @application_name.setter
+    def application_name(self, application_name):
+        """
+        Sets the application_name of this Ptsv2paymentsClientReferenceInformation.
+        The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. 
+
+        :param application_name: The application_name of this Ptsv2paymentsClientReferenceInformation.
+        :type: str
+        """
+
+        self._application_name = application_name
+
+    @property
+    def application_version(self):
+        """
+        Gets the application_version of this Ptsv2paymentsClientReferenceInformation.
+        Version of the CyberSource application or integration used for a transaction. 
+
+        :return: The application_version of this Ptsv2paymentsClientReferenceInformation.
+        :rtype: str
+        """
+        return self._application_version
+
+    @application_version.setter
+    def application_version(self, application_version):
+        """
+        Sets the application_version of this Ptsv2paymentsClientReferenceInformation.
+        Version of the CyberSource application or integration used for a transaction. 
+
+        :param application_version: The application_version of this Ptsv2paymentsClientReferenceInformation.
+        :type: str
+        """
+
+        self._application_version = application_version
+
+    @property
+    def application_user(self):
+        """
+        Gets the application_user of this Ptsv2paymentsClientReferenceInformation.
+        The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. 
+
+        :return: The application_user of this Ptsv2paymentsClientReferenceInformation.
+        :rtype: str
+        """
+        return self._application_user
+
+    @application_user.setter
+    def application_user(self, application_user):
+        """
+        Sets the application_user of this Ptsv2paymentsClientReferenceInformation.
+        The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. 
+
+        :param application_user: The application_user of this Ptsv2paymentsClientReferenceInformation.
+        :type: str
+        """
+
+        self._application_user = application_user
 
     def to_dict(self):
         """

@@ -38,7 +38,9 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
         'locality': 'str',
         'country': 'str',
         'postal_code': 'str',
-        'administrative_area': 'str'
+        'administrative_area': 'str',
+        'phone': 'str',
+        'url': 'str'
     }
 
     attribute_map = {
@@ -49,10 +51,12 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
         'locality': 'locality',
         'country': 'country',
         'postal_code': 'postalCode',
-        'administrative_area': 'administrativeArea'
+        'administrative_area': 'administrativeArea',
+        'phone': 'phone',
+        'url': 'url'
     }
 
-    def __init__(self, name=None, alternate_name=None, contact=None, address1=None, locality=None, country=None, postal_code=None, administrative_area=None):
+    def __init__(self, name=None, alternate_name=None, contact=None, address1=None, locality=None, country=None, postal_code=None, administrative_area=None, phone=None, url=None):
         """
         Ptsv2paymentsMerchantInformationMerchantDescriptor - a model defined in Swagger
         """
@@ -65,6 +69,8 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
         self._country = None
         self._postal_code = None
         self._administrative_area = None
+        self._phone = None
+        self._url = None
 
         if name is not None:
           self.name = name
@@ -82,12 +88,16 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
           self.postal_code = postal_code
         if administrative_area is not None:
           self.administrative_area = administrative_area
+        if phone is not None:
+          self.phone = phone
+        if url is not None:
+          self.url = url
 
     @property
     def name(self):
         """
         Gets the name of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        Merchant's name.  For more details about the merchant-related fields, see the `merchant_descriptor` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Note** For Paymentech processor using Cybersource Payouts, the maximum data length is 22. 
+        Your merchant name.  **Note** For Paymentech processor using Cybersource Payouts, the maximum data length is 22.  #### PIN debit Your business name. This name is displayed on the cardholder’s statement. When you include more than one consecutive space, extra spaces are removed.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  Optional field for PIN debit credit or PIN debit purchase requests.  #### Airline processing Your merchant name. This name is displayed on the cardholder’s statement. When you include more than one consecutive space, extra spaces are removed.  **Note** Some airline fee programs may require the original ticket number (ticket identifier) or the ancillary service description in positions 13 through 23 of this field.  **Important** This value must consist of English characters.  Required for captures and credits. 
 
         :return: The name of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :rtype: str
@@ -98,7 +108,7 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
     def name(self, name):
         """
         Sets the name of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        Merchant's name.  For more details about the merchant-related fields, see the `merchant_descriptor` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  **Note** For Paymentech processor using Cybersource Payouts, the maximum data length is 22. 
+        Your merchant name.  **Note** For Paymentech processor using Cybersource Payouts, the maximum data length is 22.  #### PIN debit Your business name. This name is displayed on the cardholder’s statement. When you include more than one consecutive space, extra spaces are removed.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  Optional field for PIN debit credit or PIN debit purchase requests.  #### Airline processing Your merchant name. This name is displayed on the cardholder’s statement. When you include more than one consecutive space, extra spaces are removed.  **Note** Some airline fee programs may require the original ticket number (ticket identifier) or the ancillary service description in positions 13 through 23 of this field.  **Important** This value must consist of English characters.  Required for captures and credits. 
 
         :param name: The name of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :type: str
@@ -185,7 +195,7 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
     def locality(self):
         """
         Gets the locality of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        Merchant's City.  For the descriptions, used-by information, data types, and lengths for these fields, see the `merchant_descriptor_city` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        Merchant's City.  #### PIN debit City for your business location. This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  Optional field for PIN debit credit or PIN debit purchase requests. 
 
         :return: The locality of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :rtype: str
@@ -196,7 +206,7 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
     def locality(self, locality):
         """
         Sets the locality of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        Merchant's City.  For the descriptions, used-by information, data types, and lengths for these fields, see the `merchant_descriptor_city` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        Merchant's City.  #### PIN debit City for your business location. This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  Optional field for PIN debit credit or PIN debit purchase requests. 
 
         :param locality: The locality of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :type: str
@@ -210,7 +220,7 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
     def country(self):
         """
         Gets the country of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        Merchant's country.  For the descriptions, used-by information, data types, and lengths for these fields, see the `merchant_descriptor_country` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        Merchant's country.  #### PIN debit Country code for your business location. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters. **Note** If your business is located in the U.S. or Canada and you include this field in a request, you must also include `merchantInformation.merchantDescriptor.administrativeArea`.  Optional field for PIN debit credit or PIN debit purchase. 
 
         :return: The country of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :rtype: str
@@ -221,13 +231,11 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
     def country(self, country):
         """
         Sets the country of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        Merchant's country.  For the descriptions, used-by information, data types, and lengths for these fields, see the `merchant_descriptor_country` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        Merchant's country.  #### PIN debit Country code for your business location. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters. **Note** If your business is located in the U.S. or Canada and you include this field in a request, you must also include `merchantInformation.merchantDescriptor.administrativeArea`.  Optional field for PIN debit credit or PIN debit purchase. 
 
         :param country: The country of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :type: str
         """
-        if country is not None and len(country) > 2:
-            raise ValueError("Invalid value for `country`, length must be less than or equal to `2`")
 
         self._country = country
 
@@ -235,7 +243,7 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
     def postal_code(self):
         """
         Gets the postal_code of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        Merchant's postal code.  For the descriptions, used-by information, data types, and lengths for these fields, see the `merchant_descriptor_postal_code` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        Merchant's postal code.  #### PIN debit Postal code for your business location. This value might be displayed on the cardholder’s statement.  If your business is domiciled in the U.S., you can use a 5-digit or 9-digit postal code. A 9-digit postal code must follow this format: [5 digits][dash][4 digits] Example: `12345-6789`  If your business is domiciled in Canada, you can use a 6-digit or 9-digit postal code. A 6-digit postal code must follow this format: [alpha][numeric][alpha][space] [numeric][alpha][numeric] Example: `A1B 2C3`  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada. **Important** Mastercard requires a postal code for any country that uses postal codes. You can provide the postal code in your account or you can include this field in your request.  Optional field for PIN debit credit or PIN debit purchase. 
 
         :return: The postal_code of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :rtype: str
@@ -246,7 +254,7 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
     def postal_code(self, postal_code):
         """
         Sets the postal_code of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        Merchant's postal code.  For the descriptions, used-by information, data types, and lengths for these fields, see the `merchant_descriptor_postal_code` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        Merchant's postal code.  #### PIN debit Postal code for your business location. This value might be displayed on the cardholder’s statement.  If your business is domiciled in the U.S., you can use a 5-digit or 9-digit postal code. A 9-digit postal code must follow this format: [5 digits][dash][4 digits] Example: `12345-6789`  If your business is domiciled in Canada, you can use a 6-digit or 9-digit postal code. A 6-digit postal code must follow this format: [alpha][numeric][alpha][space] [numeric][alpha][numeric] Example: `A1B 2C3`  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada. **Important** Mastercard requires a postal code for any country that uses postal codes. You can provide the postal code in your account or you can include this field in your request.  Optional field for PIN debit credit or PIN debit purchase. 
 
         :param postal_code: The postal_code of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :type: str
@@ -260,7 +268,7 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
     def administrative_area(self):
         """
         Gets the administrative_area of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        The state where the merchant is located.  For the descriptions, used-by information, data types, and lengths for these fields, see the `merchant_descriptor_state` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  Merchant State. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        The state where the merchant is located.  #### PIN debit State code or region code for your business. Use the Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf) This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada.  Optional field for PIN debit credit or PIN debit purchase. 
 
         :return: The administrative_area of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :rtype: str
@@ -271,15 +279,63 @@ class Ptsv2paymentsMerchantInformationMerchantDescriptor(object):
     def administrative_area(self, administrative_area):
         """
         Sets the administrative_area of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
-        The state where the merchant is located.  For the descriptions, used-by information, data types, and lengths for these fields, see the `merchant_descriptor_state` field description in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html)  Merchant State. For the descriptions, used-by information, data types, and lengths for these fields, see Merchant Descriptors in [Credit Card Services Using the SCMP API.](http://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html) 
+        The state where the merchant is located.  #### PIN debit State code or region code for your business. Use the Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf) This value might be displayed on the cardholder’s statement.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  **Note** This field is supported only for businesses located in the U.S. or Canada.  Optional field for PIN debit credit or PIN debit purchase. 
 
         :param administrative_area: The administrative_area of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
         :type: str
         """
-        if administrative_area is not None and len(administrative_area) > 3:
-            raise ValueError("Invalid value for `administrative_area`, length must be less than or equal to `3`")
 
         self._administrative_area = administrative_area
+
+    @property
+    def phone(self):
+        """
+        Gets the phone of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
+        Merchnat phone as contact information for CNP transactions 
+
+        :return: The phone of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
+        :rtype: str
+        """
+        return self._phone
+
+    @phone.setter
+    def phone(self, phone):
+        """
+        Sets the phone of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
+        Merchnat phone as contact information for CNP transactions 
+
+        :param phone: The phone of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
+        :type: str
+        """
+        if phone is not None and len(phone) > 13:
+            raise ValueError("Invalid value for `phone`, length must be less than or equal to `13`")
+
+        self._phone = phone
+
+    @property
+    def url(self):
+        """
+        Gets the url of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
+        Address of company's website provided by merchant 
+
+        :return: The url of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """
+        Sets the url of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
+        Address of company's website provided by merchant 
+
+        :param url: The url of this Ptsv2paymentsMerchantInformationMerchantDescriptor.
+        :type: str
+        """
+        if url is not None and len(url) > 255:
+            raise ValueError("Invalid value for `url`, length must be less than or equal to `255`")
+
+        self._url = url
 
     def to_dict(self):
         """

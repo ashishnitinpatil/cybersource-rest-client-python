@@ -31,27 +31,32 @@ class Riskv1decisionsRiskInformation(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'profile': 'Riskv1decisionsRiskInformationProfile',
-        'event_type': 'str'
+        'profile': 'Ptsv2paymentsRiskInformationProfile',
+        'event_type': 'str',
+        'buyer_history': 'Ptsv2paymentsRiskInformationBuyerHistory'
     }
 
     attribute_map = {
         'profile': 'profile',
-        'event_type': 'eventType'
+        'event_type': 'eventType',
+        'buyer_history': 'buyerHistory'
     }
 
-    def __init__(self, profile=None, event_type=None):
+    def __init__(self, profile=None, event_type=None, buyer_history=None):
         """
         Riskv1decisionsRiskInformation - a model defined in Swagger
         """
 
         self._profile = None
         self._event_type = None
+        self._buyer_history = None
 
         if profile is not None:
           self.profile = profile
         if event_type is not None:
           self.event_type = event_type
+        if buyer_history is not None:
+          self.buyer_history = buyer_history
 
     @property
     def profile(self):
@@ -59,7 +64,7 @@ class Riskv1decisionsRiskInformation(object):
         Gets the profile of this Riskv1decisionsRiskInformation.
 
         :return: The profile of this Riskv1decisionsRiskInformation.
-        :rtype: Riskv1decisionsRiskInformationProfile
+        :rtype: Ptsv2paymentsRiskInformationProfile
         """
         return self._profile
 
@@ -69,7 +74,7 @@ class Riskv1decisionsRiskInformation(object):
         Sets the profile of this Riskv1decisionsRiskInformation.
 
         :param profile: The profile of this Riskv1decisionsRiskInformation.
-        :type: Riskv1decisionsRiskInformationProfile
+        :type: Ptsv2paymentsRiskInformationProfile
         """
 
         self._profile = profile
@@ -98,6 +103,27 @@ class Riskv1decisionsRiskInformation(object):
             raise ValueError("Invalid value for `event_type`, length must be less than or equal to `255`")
 
         self._event_type = event_type
+
+    @property
+    def buyer_history(self):
+        """
+        Gets the buyer_history of this Riskv1decisionsRiskInformation.
+
+        :return: The buyer_history of this Riskv1decisionsRiskInformation.
+        :rtype: Ptsv2paymentsRiskInformationBuyerHistory
+        """
+        return self._buyer_history
+
+    @buyer_history.setter
+    def buyer_history(self, buyer_history):
+        """
+        Sets the buyer_history of this Riskv1decisionsRiskInformation.
+
+        :param buyer_history: The buyer_history of this Riskv1decisionsRiskInformation.
+        :type: Ptsv2paymentsRiskInformationBuyerHistory
+        """
+
+        self._buyer_history = buyer_history
 
     def to_dict(self):
         """

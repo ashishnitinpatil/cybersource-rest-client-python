@@ -44,7 +44,7 @@ class DownloadXSDApi(object):
 
     def get_xsdv2(self, report_definition_name_version, **kwargs):
         """
-        Download XSD for report
+        Download XSD for Report
         Used to download XSDs for reports on no-auth.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -70,7 +70,7 @@ class DownloadXSDApi(object):
 
     def get_xsdv2_with_http_info(self, report_definition_name_version, **kwargs):
         """
-        Download XSD for report
+        Download XSD for Report
         Used to download XSDs for reports on no-auth.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -133,7 +133,7 @@ class DownloadXSDApi(object):
         # Authentication setting
         auth_settings = []
 
-        return self.api_client.call_api(f'/xsds/{reportDefinitionNameVersion}', 'GET',
+        return self.api_client.call_api(f'/reporting/v3/xsds/{reportDefinitionNameVersion}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,

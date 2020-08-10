@@ -31,12 +31,13 @@ class PtsV2PaymentsVoidsPost201Response(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'links': 'PtsV2PaymentsReversalsPost201ResponseLinks',
+        'links': 'PtsV2IncrementalAuthorizationPatch201ResponseLinks',
         'id': 'str',
         'submit_time_utc': 'str',
         'status': 'str',
         'client_reference_information': 'PtsV2PaymentsPost201ResponseClientReferenceInformation',
-        'void_amount_details': 'PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails'
+        'void_amount_details': 'PtsV2PaymentsVoidsPost201ResponseVoidAmountDetails',
+        'processor_information': 'PtsV2PaymentsVoidsPost201ResponseProcessorInformation'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class PtsV2PaymentsVoidsPost201Response(object):
         'submit_time_utc': 'submitTimeUtc',
         'status': 'status',
         'client_reference_information': 'clientReferenceInformation',
-        'void_amount_details': 'voidAmountDetails'
+        'void_amount_details': 'voidAmountDetails',
+        'processor_information': 'processorInformation'
     }
 
-    def __init__(self, links=None, id=None, submit_time_utc=None, status=None, client_reference_information=None, void_amount_details=None):
+    def __init__(self, links=None, id=None, submit_time_utc=None, status=None, client_reference_information=None, void_amount_details=None, processor_information=None):
         """
         PtsV2PaymentsVoidsPost201Response - a model defined in Swagger
         """
@@ -59,6 +61,7 @@ class PtsV2PaymentsVoidsPost201Response(object):
         self._status = None
         self._client_reference_information = None
         self._void_amount_details = None
+        self._processor_information = None
 
         if links is not None:
           self.links = links
@@ -72,6 +75,8 @@ class PtsV2PaymentsVoidsPost201Response(object):
           self.client_reference_information = client_reference_information
         if void_amount_details is not None:
           self.void_amount_details = void_amount_details
+        if processor_information is not None:
+          self.processor_information = processor_information
 
     @property
     def links(self):
@@ -79,7 +84,7 @@ class PtsV2PaymentsVoidsPost201Response(object):
         Gets the links of this PtsV2PaymentsVoidsPost201Response.
 
         :return: The links of this PtsV2PaymentsVoidsPost201Response.
-        :rtype: PtsV2PaymentsReversalsPost201ResponseLinks
+        :rtype: PtsV2IncrementalAuthorizationPatch201ResponseLinks
         """
         return self._links
 
@@ -89,7 +94,7 @@ class PtsV2PaymentsVoidsPost201Response(object):
         Sets the links of this PtsV2PaymentsVoidsPost201Response.
 
         :param links: The links of this PtsV2PaymentsVoidsPost201Response.
-        :type: PtsV2PaymentsReversalsPost201ResponseLinks
+        :type: PtsV2IncrementalAuthorizationPatch201ResponseLinks
         """
 
         self._links = links
@@ -98,7 +103,7 @@ class PtsV2PaymentsVoidsPost201Response(object):
     def id(self):
         """
         Gets the id of this PtsV2PaymentsVoidsPost201Response.
-        An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.
+        An unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response.  #### PIN debit Returned for all PIN debit services. 
 
         :return: The id of this PtsV2PaymentsVoidsPost201Response.
         :rtype: str
@@ -109,7 +114,7 @@ class PtsV2PaymentsVoidsPost201Response(object):
     def id(self, id):
         """
         Sets the id of this PtsV2PaymentsVoidsPost201Response.
-        An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.
+        An unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response.  #### PIN debit Returned for all PIN debit services. 
 
         :param id: The id of this PtsV2PaymentsVoidsPost201Response.
         :type: str
@@ -123,7 +128,7 @@ class PtsV2PaymentsVoidsPost201Response(object):
     def submit_time_utc(self):
         """
         Gets the submit_time_utc of this PtsV2PaymentsVoidsPost201Response.
-        Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` Example `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC. 
+        Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` **Example** `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. 
 
         :return: The submit_time_utc of this PtsV2PaymentsVoidsPost201Response.
         :rtype: str
@@ -134,7 +139,7 @@ class PtsV2PaymentsVoidsPost201Response(object):
     def submit_time_utc(self, submit_time_utc):
         """
         Sets the submit_time_utc of this PtsV2PaymentsVoidsPost201Response.
-        Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` Example `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC. 
+        Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` **Example** `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. 
 
         :param submit_time_utc: The submit_time_utc of this PtsV2PaymentsVoidsPost201Response.
         :type: str
@@ -206,6 +211,27 @@ class PtsV2PaymentsVoidsPost201Response(object):
         """
 
         self._void_amount_details = void_amount_details
+
+    @property
+    def processor_information(self):
+        """
+        Gets the processor_information of this PtsV2PaymentsVoidsPost201Response.
+
+        :return: The processor_information of this PtsV2PaymentsVoidsPost201Response.
+        :rtype: PtsV2PaymentsVoidsPost201ResponseProcessorInformation
+        """
+        return self._processor_information
+
+    @processor_information.setter
+    def processor_information(self, processor_information):
+        """
+        Sets the processor_information of this PtsV2PaymentsVoidsPost201Response.
+
+        :param processor_information: The processor_information of this PtsV2PaymentsVoidsPost201Response.
+        :type: PtsV2PaymentsVoidsPost201ResponseProcessorInformation
+        """
+
+        self._processor_information = processor_information
 
     def to_dict(self):
         """

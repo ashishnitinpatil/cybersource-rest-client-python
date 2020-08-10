@@ -4,13 +4,13 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_payment_batch_summary**](PaymentBatchSummariesApi.md#get_payment_batch_summary) | **GET** /reporting/v3/payment-batch-summaries | Get payment batch summary data
+[**get_payment_batch_summary**](PaymentBatchSummariesApi.md#get_payment_batch_summary) | **GET** /reporting/v3/payment-batch-summaries | Get Payment Batch Summary Data
 
 
 # **get_payment_batch_summary**
 > ReportingV3PaymentBatchSummariesGet200Response get_payment_batch_summary(start_time, end_time, organization_id=organization_id, roll_up=roll_up, breakdown=breakdown, start_day_of_week=start_day_of_week)
 
-Get payment batch summary data
+Get Payment Batch Summary Data
 
 Scope can be either account/merchant or reseller.
 
@@ -32,7 +32,7 @@ breakdown = 'breakdown_example' # str | Conditional - Breakdown on account_rollu
 start_day_of_week = 56 # int | Optional - Start day of week to breakdown data for weeks in a month (optional)
 
 try: 
-    # Get payment batch summary data
+    # Get Payment Batch Summary Data
     api_response = api_instance.get_payment_batch_summary(start_time, end_time, organization_id=organization_id, roll_up=roll_up, breakdown=breakdown, start_day_of_week=start_day_of_week)
     pprint(api_response)
 except ApiException as e:
@@ -61,7 +61,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json
+ - **Accept**: application/hal+json, text/csv, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -38,7 +38,9 @@ class PtsV2PaymentsCapturesPost201Response(object):
         'reconciliation_id': 'str',
         'client_reference_information': 'PtsV2PaymentsPost201ResponseClientReferenceInformation',
         'processor_information': 'PtsV2PaymentsCapturesPost201ResponseProcessorInformation',
-        'order_information': 'PtsV2PaymentsCapturesPost201ResponseOrderInformation'
+        'order_information': 'PtsV2PaymentsCapturesPost201ResponseOrderInformation',
+        'point_of_sale_information': 'PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation',
+        'processing_information': 'PtsV2PaymentsCapturesPost201ResponseProcessingInformation'
     }
 
     attribute_map = {
@@ -49,10 +51,12 @@ class PtsV2PaymentsCapturesPost201Response(object):
         'reconciliation_id': 'reconciliationId',
         'client_reference_information': 'clientReferenceInformation',
         'processor_information': 'processorInformation',
-        'order_information': 'orderInformation'
+        'order_information': 'orderInformation',
+        'point_of_sale_information': 'pointOfSaleInformation',
+        'processing_information': 'processingInformation'
     }
 
-    def __init__(self, links=None, id=None, submit_time_utc=None, status=None, reconciliation_id=None, client_reference_information=None, processor_information=None, order_information=None):
+    def __init__(self, links=None, id=None, submit_time_utc=None, status=None, reconciliation_id=None, client_reference_information=None, processor_information=None, order_information=None, point_of_sale_information=None, processing_information=None):
         """
         PtsV2PaymentsCapturesPost201Response - a model defined in Swagger
         """
@@ -65,6 +69,8 @@ class PtsV2PaymentsCapturesPost201Response(object):
         self._client_reference_information = None
         self._processor_information = None
         self._order_information = None
+        self._point_of_sale_information = None
+        self._processing_information = None
 
         if links is not None:
           self.links = links
@@ -82,6 +88,10 @@ class PtsV2PaymentsCapturesPost201Response(object):
           self.processor_information = processor_information
         if order_information is not None:
           self.order_information = order_information
+        if point_of_sale_information is not None:
+          self.point_of_sale_information = point_of_sale_information
+        if processing_information is not None:
+          self.processing_information = processing_information
 
     @property
     def links(self):
@@ -108,7 +118,7 @@ class PtsV2PaymentsCapturesPost201Response(object):
     def id(self):
         """
         Gets the id of this PtsV2PaymentsCapturesPost201Response.
-        An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.
+        An unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response.  #### PIN debit Returned for all PIN debit services. 
 
         :return: The id of this PtsV2PaymentsCapturesPost201Response.
         :rtype: str
@@ -119,7 +129,7 @@ class PtsV2PaymentsCapturesPost201Response(object):
     def id(self, id):
         """
         Sets the id of this PtsV2PaymentsCapturesPost201Response.
-        An unique identification number assigned by CyberSource to identify the submitted request. It is also appended to the endpoint of the resource.
+        An unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  On incremental authorizations, this value with be the same as the identification number returned in the original authorization response.  #### PIN debit Returned for all PIN debit services. 
 
         :param id: The id of this PtsV2PaymentsCapturesPost201Response.
         :type: str
@@ -133,7 +143,7 @@ class PtsV2PaymentsCapturesPost201Response(object):
     def submit_time_utc(self):
         """
         Gets the submit_time_utc of this PtsV2PaymentsCapturesPost201Response.
-        Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` Example `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC. 
+        Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` **Example** `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. 
 
         :return: The submit_time_utc of this PtsV2PaymentsCapturesPost201Response.
         :rtype: str
@@ -144,7 +154,7 @@ class PtsV2PaymentsCapturesPost201Response(object):
     def submit_time_utc(self, submit_time_utc):
         """
         Sets the submit_time_utc of this PtsV2PaymentsCapturesPost201Response.
-        Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` Example `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC. 
+        Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` **Example** `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC.  Returned by authorization service.  #### PIN debit Time when the PIN debit credit, PIN debit purchase or PIN debit reversal was requested.  Returned by PIN debit credit, PIN debit purchase or PIN debit reversal. 
 
         :param submit_time_utc: The submit_time_utc of this PtsV2PaymentsCapturesPost201Response.
         :type: str
@@ -179,7 +189,7 @@ class PtsV2PaymentsCapturesPost201Response(object):
     def reconciliation_id(self):
         """
         Gets the reconciliation_id of this PtsV2PaymentsCapturesPost201Response.
-        The reconciliation id for the submitted transaction. This value is not returned for all processors. 
+        Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  ##### PIN debit Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### Atos Positive string (6)  #### All other processors String (60) 
 
         :return: The reconciliation_id of this PtsV2PaymentsCapturesPost201Response.
         :rtype: str
@@ -190,7 +200,7 @@ class PtsV2PaymentsCapturesPost201Response(object):
     def reconciliation_id(self, reconciliation_id):
         """
         Sets the reconciliation_id of this PtsV2PaymentsCapturesPost201Response.
-        The reconciliation id for the submitted transaction. This value is not returned for all processors. 
+        Reference number for the transaction. This value is not returned for all processors.  Returned by authorization service.  ##### PIN debit Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### Atos Positive string (6)  #### All other processors String (60) 
 
         :param reconciliation_id: The reconciliation_id of this PtsV2PaymentsCapturesPost201Response.
         :type: str
@@ -262,6 +272,48 @@ class PtsV2PaymentsCapturesPost201Response(object):
         """
 
         self._order_information = order_information
+
+    @property
+    def point_of_sale_information(self):
+        """
+        Gets the point_of_sale_information of this PtsV2PaymentsCapturesPost201Response.
+
+        :return: The point_of_sale_information of this PtsV2PaymentsCapturesPost201Response.
+        :rtype: PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation
+        """
+        return self._point_of_sale_information
+
+    @point_of_sale_information.setter
+    def point_of_sale_information(self, point_of_sale_information):
+        """
+        Sets the point_of_sale_information of this PtsV2PaymentsCapturesPost201Response.
+
+        :param point_of_sale_information: The point_of_sale_information of this PtsV2PaymentsCapturesPost201Response.
+        :type: PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation
+        """
+
+        self._point_of_sale_information = point_of_sale_information
+
+    @property
+    def processing_information(self):
+        """
+        Gets the processing_information of this PtsV2PaymentsCapturesPost201Response.
+
+        :return: The processing_information of this PtsV2PaymentsCapturesPost201Response.
+        :rtype: PtsV2PaymentsCapturesPost201ResponseProcessingInformation
+        """
+        return self._processing_information
+
+    @processing_information.setter
+    def processing_information(self, processing_information):
+        """
+        Sets the processing_information of this PtsV2PaymentsCapturesPost201Response.
+
+        :param processing_information: The processing_information of this PtsV2PaymentsCapturesPost201Response.
+        :type: PtsV2PaymentsCapturesPost201ResponseProcessingInformation
+        """
+
+        self._processing_information = processing_information
 
     def to_dict(self):
         """

@@ -108,6 +108,14 @@ class MerchantConfiguration:
                 self.request_host = GlobalLabelParameters.SANBOX_URL
             elif self.run_environment.lower() == GlobalLabelParameters.PRODUCTION_RUN_ENVIRONMENT.lower():
                 self.request_host = GlobalLabelParameters.PRODUCTION_URL
+            elif self.run_environment.lower() == GlobalLabelParameters.BOA_SANDBOX_RUN_ENVIRONMENT.lower():
+                self.request_host = GlobalLabelParameters.BOA_SANDBOX_URL
+            elif self.run_environment.lower() == GlobalLabelParameters.BOA_PRODUCTION_RUN_ENVIRONMENT.lower():
+                self.request_host = GlobalLabelParameters.BOA_PRODUCTION_URL
+            elif self.run_environment.lower() == GlobalLabelParameters.IDC_SANDBOX_RUN_ENVIRONMENT.lower():
+                self.request_host = GlobalLabelParameters.IDC_SANDBOX_URL
+            elif self.run_environment.lower() == GlobalLabelParameters.IDC_PRODUCTION_RUN_ENVIRONMENT.lower():
+                self.request_host = GlobalLabelParameters.IDC_PRODUCTION_URL
             else:
                 self.request_host = self.run_environment
 

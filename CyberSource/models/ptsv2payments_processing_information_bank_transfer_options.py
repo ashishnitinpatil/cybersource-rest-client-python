@@ -40,7 +40,8 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
         'customer_memo': 'str',
         'payment_category_code': 'str',
         'settlement_method': 'str',
-        'fraud_screening_level': 'str'
+        'fraud_screening_level': 'str',
+        'customer_present': 'str'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
         'customer_memo': 'customerMemo',
         'payment_category_code': 'paymentCategoryCode',
         'settlement_method': 'settlementMethod',
-        'fraud_screening_level': 'fraudScreeningLevel'
+        'fraud_screening_level': 'fraudScreeningLevel',
+        'customer_present': 'customerPresent'
     }
 
-    def __init__(self, decline_avs_flags=None, sec_code=None, terminal_city=None, terminal_state=None, effective_date=None, partial_payment_id=None, customer_memo=None, payment_category_code=None, settlement_method=None, fraud_screening_level=None):
+    def __init__(self, decline_avs_flags=None, sec_code=None, terminal_city=None, terminal_state=None, effective_date=None, partial_payment_id=None, customer_memo=None, payment_category_code=None, settlement_method=None, fraud_screening_level=None, customer_present=None):
         """
         Ptsv2paymentsProcessingInformationBankTransferOptions - a model defined in Swagger
         """
@@ -71,6 +73,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
         self._payment_category_code = None
         self._settlement_method = None
         self._fraud_screening_level = None
+        self._customer_present = None
 
         if decline_avs_flags is not None:
           self.decline_avs_flags = decline_avs_flags
@@ -92,6 +95,8 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
           self.settlement_method = settlement_method
         if fraud_screening_level is not None:
           self.fraud_screening_level = fraud_screening_level
+        if customer_present is not None:
+          self.customer_present = customer_present
 
     @property
     def decline_avs_flags(self):
@@ -122,7 +127,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def sec_code(self):
         """
         Gets the sec_code of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - `ARC`: account receivable conversion - `CCD`: corporate cash disbursement - `POP`: point of purchase conversion - `PPD`: prearranged payment and deposit entry - `TEL`: telephone-initiated entry - `WEB`: internet-initiated entry  For details, see `ecp_sec_code` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - `ARC`: account receivable conversion - `CCD`: corporate cash disbursement - `POP`: point of purchase conversion - `PPD`: prearranged payment and deposit entry - `TEL`: telephone-initiated entry - `WEB`: internet-initiated entry  For details, see `ecp_sec_code` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
 
         :return: The sec_code of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :rtype: str
@@ -133,7 +138,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def sec_code(self, sec_code):
         """
         Sets the sec_code of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - `ARC`: account receivable conversion - `CCD`: corporate cash disbursement - `POP`: point of purchase conversion - `PPD`: prearranged payment and deposit entry - `TEL`: telephone-initiated entry - `WEB`: internet-initiated entry  For details, see `ecp_sec_code` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Specifies the authorization method for the transaction.  #### TeleCheck Accepts only the following values: - `ARC`: account receivable conversion - `CCD`: corporate cash disbursement - `POP`: point of purchase conversion - `PPD`: prearranged payment and deposit entry - `TEL`: telephone-initiated entry - `WEB`: internet-initiated entry  For details, see `ecp_sec_code` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
 
         :param sec_code: The sec_code of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :type: str
@@ -222,7 +227,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def partial_payment_id(self):
         """
         Gets the partial_payment_id of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. For details, see `partial_payment_id` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. For details, see `partial_payment_id` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
 
         :return: The partial_payment_id of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :rtype: str
@@ -233,7 +238,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def partial_payment_id(self, partial_payment_id):
         """
         Sets the partial_payment_id of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. For details, see `partial_payment_id` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Identifier for a partial payment or partial credit.  The value for each debit request or credit request must be unique within the scope of the order. For details, see `partial_payment_id` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
 
         :param partial_payment_id: The partial_payment_id of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :type: str
@@ -272,7 +277,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def payment_category_code(self):
         """
         Gets the payment_category_code of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Flag that indicates whether to process the payment.  Use with deferred payments. For details, see `ecp_payment_mode` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  Possible values: - `0`: Standard debit with immediate payment (default). - `1`: For deferred payments, indicates that this is a deferred payment and that you will send a debit request with `paymentCategoryCode = 2` in the future. - `2`: For deferred payments, indicates notification to initiate payment.  #### Chase Paymentech Solutions and TeleCheck Use for deferred and partial payments.  #### CyberSource ACH Service Not used.  #### RBS WorldPay Atlanta Not used. 
+        Flag that indicates whether to process the payment.  Use with deferred payments. For details, see `ecp_payment_mode` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/)  Possible values: - `0`: Standard debit with immediate payment (default). - `1`: For deferred payments, indicates that this is a deferred payment and that you will send a debit request with `paymentCategoryCode = 2` in the future. - `2`: For deferred payments, indicates notification to initiate payment.  #### Chase Paymentech Solutions and TeleCheck Use for deferred and partial payments.  #### CyberSource ACH Service Not used.  #### RBS WorldPay Atlanta Not used. 
 
         :return: The payment_category_code of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :rtype: str
@@ -283,7 +288,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def payment_category_code(self, payment_category_code):
         """
         Sets the payment_category_code of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Flag that indicates whether to process the payment.  Use with deferred payments. For details, see `ecp_payment_mode` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)  Possible values: - `0`: Standard debit with immediate payment (default). - `1`: For deferred payments, indicates that this is a deferred payment and that you will send a debit request with `paymentCategoryCode = 2` in the future. - `2`: For deferred payments, indicates notification to initiate payment.  #### Chase Paymentech Solutions and TeleCheck Use for deferred and partial payments.  #### CyberSource ACH Service Not used.  #### RBS WorldPay Atlanta Not used. 
+        Flag that indicates whether to process the payment.  Use with deferred payments. For details, see `ecp_payment_mode` field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/)  Possible values: - `0`: Standard debit with immediate payment (default). - `1`: For deferred payments, indicates that this is a deferred payment and that you will send a debit request with `paymentCategoryCode = 2` in the future. - `2`: For deferred payments, indicates notification to initiate payment.  #### Chase Paymentech Solutions and TeleCheck Use for deferred and partial payments.  #### CyberSource ACH Service Not used.  #### RBS WorldPay Atlanta Not used. 
 
         :param payment_category_code: The payment_category_code of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :type: str
@@ -297,7 +302,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def settlement_method(self):
         """
         Gets the settlement_method of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Method used for settlement.  Possible values: - `A`: Automated Clearing House (default for credits and for transactions using Canadian dollars) - `F`: Facsimile draft (U.S. dollars only) - `B`: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  For details, see `ecp_settlement_method` field description for credit cars and `ecp_debit_settlement_method` for debit cards in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Method used for settlement.  Possible values: - `A`: Automated Clearing House (default for credits and for transactions using Canadian dollars) - `F`: Facsimile draft (U.S. dollars only) - `B`: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  For details, see `ecp_settlement_method` field description for credit cars and `ecp_debit_settlement_method` for debit cards in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
 
         :return: The settlement_method of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :rtype: str
@@ -308,7 +313,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def settlement_method(self, settlement_method):
         """
         Sets the settlement_method of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Method used for settlement.  Possible values: - `A`: Automated Clearing House (default for credits and for transactions using Canadian dollars) - `F`: Facsimile draft (U.S. dollars only) - `B`: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  For details, see `ecp_settlement_method` field description for credit cars and `ecp_debit_settlement_method` for debit cards in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm) 
+        Method used for settlement.  Possible values: - `A`: Automated Clearing House (default for credits and for transactions using Canadian dollars) - `F`: Facsimile draft (U.S. dollars only) - `B`: Best possible (U.S. dollars only) (default if the field has not already been configured for your merchant ID)  For details, see `ecp_settlement_method` field description for credit cars and `ecp_debit_settlement_method` for debit cards in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
 
         :param settlement_method: The settlement_method of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :type: str
@@ -322,7 +327,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def fraud_screening_level(self):
         """
         Gets the fraud_screening_level of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Level of fraud screening.  Possible values: - `1`: Validation — default if the field has not already been configured for your merchant ID - `2`: Verification  For a description of this feature and a list of supported processors, see \"Verification and Validation\" in the [Electronic Check Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm). 
+        Level of fraud screening.  Possible values: - `1`: Validation — default if the field has not already been configured for your merchant ID - `2`: Verification  For a description of this feature and a list of supported processors, see \"Verification and Validation\" in the [Electronic Check Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). 
 
         :return: The fraud_screening_level of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :rtype: str
@@ -333,7 +338,7 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
     def fraud_screening_level(self, fraud_screening_level):
         """
         Sets the fraud_screening_level of this Ptsv2paymentsProcessingInformationBankTransferOptions.
-        Level of fraud screening.  Possible values: - `1`: Validation — default if the field has not already been configured for your merchant ID - `2`: Verification  For a description of this feature and a list of supported processors, see \"Verification and Validation\" in the [Electronic Check Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm). 
+        Level of fraud screening.  Possible values: - `1`: Validation — default if the field has not already been configured for your merchant ID - `2`: Verification  For a description of this feature and a list of supported processors, see \"Verification and Validation\" in the [Electronic Check Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/). 
 
         :param fraud_screening_level: The fraud_screening_level of this Ptsv2paymentsProcessingInformationBankTransferOptions.
         :type: str
@@ -342,6 +347,31 @@ class Ptsv2paymentsProcessingInformationBankTransferOptions(object):
             raise ValueError("Invalid value for `fraud_screening_level`, length must be less than or equal to `1`")
 
         self._fraud_screening_level = fraud_screening_level
+
+    @property
+    def customer_present(self):
+        """
+        Gets the customer_present of this Ptsv2paymentsProcessingInformationBankTransferOptions.
+        Indicates whether a customer is physically present and whether the customer is enrolling in CyberSource Recurring Billing.  Possible values: - `1`: Customer is present and not enrolling. - `2`: Customer is not present and not enrolling. - `3`: Customer is present and enrolling. - `4`: Customer is not present and enrolling. 
+
+        :return: The customer_present of this Ptsv2paymentsProcessingInformationBankTransferOptions.
+        :rtype: str
+        """
+        return self._customer_present
+
+    @customer_present.setter
+    def customer_present(self, customer_present):
+        """
+        Sets the customer_present of this Ptsv2paymentsProcessingInformationBankTransferOptions.
+        Indicates whether a customer is physically present and whether the customer is enrolling in CyberSource Recurring Billing.  Possible values: - `1`: Customer is present and not enrolling. - `2`: Customer is not present and not enrolling. - `3`: Customer is present and enrolling. - `4`: Customer is not present and enrolling. 
+
+        :param customer_present: The customer_present of this Ptsv2paymentsProcessingInformationBankTransferOptions.
+        :type: str
+        """
+        if customer_present is not None and len(customer_present) > 1:
+            raise ValueError("Invalid value for `customer_present`, length must be less than or equal to `1`")
+
+        self._customer_present = customer_present
 
     def to_dict(self):
         """
